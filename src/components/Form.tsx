@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
 type FormPropsType = {
+  city: string;
   setCity: React.Dispatch<React.SetStateAction<string>>;
   getWeather: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
-const Form = (props: FormPropsType) => {
+const Form = ({ city, setCity, getWeather }: FormPropsType) => {
   const [nameError, setNameError] = useState<string>('');
   const handleBlur = (e: any) => {
     const name = e.target.value;
@@ -22,14 +23,15 @@ const Form = (props: FormPropsType) => {
   };
 
   return (
-    <form onSubmit={props.getWeather}>
+    <form onSubmit={getWeather}>
       <input
         type="text"
         name="city"
         placeholder="City Name"
-        onChange={(e) => props.setCity(e.target.value)}
+        onChange={(e) => setCity(e.target.value)}
         onBlur={handleBlur}
         onFocus={handleFocus}
+        value={city}
       />
       <button type="submit">Get Weather</button>
       {nameError && <p>{nameError}</p>}
