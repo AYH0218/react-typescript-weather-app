@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
 import Form from './components/Form';
-import Result from './components/Results';
 import Title from './components/Title';
 import Loading from './components/Loading';
-import { loadavg } from 'os';
 import Results from './components/Results';
 
 type ResultsStateType = {
@@ -41,8 +39,8 @@ function App() {
         });
         setCity('');
         setLoading(false);
-      });
-    // .catch((err) => alert('エラーが発生しました。ページをリロードして、もう一度トライしてください。'));
+      })
+      .catch((err) => alert('エラーが発生しました。ページをリロードして、もう一度トライしてください。'));
   };
 
   return (
