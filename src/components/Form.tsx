@@ -4,12 +4,13 @@ type FormPropsType = {
   city: string;
   setCity: React.Dispatch<React.SetStateAction<string>>;
   getWeather: (e: React.FormEvent<HTMLFormElement>) => void;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Form = ({ city, setCity, getWeather }: FormPropsType) => {
+const Form = ({ city, setCity, getWeather, setLoading }: FormPropsType) => {
   const [nameError, setNameError] = useState<string>('');
   const handleBlur = (e: any) => {
-    const name = e.target.value;
+    const name: string = e.target.value;
     if (!name) {
       setNameError('Please enter City Name');
     } else if (name.match(/[^A-Za-z0-9]+/)) {
@@ -20,6 +21,7 @@ const Form = ({ city, setCity, getWeather }: FormPropsType) => {
   };
   const handleFocus = (e: any) => {
     setNameError('');
+    setLoading(false);
   };
 
   return (

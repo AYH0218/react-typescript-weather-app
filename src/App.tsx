@@ -40,14 +40,14 @@ function App() {
         setCity('');
         setLoading(false);
       })
-      .catch((err) => alert('エラーが発生しました。ページをリロードして、もう一度トライしてください。'));
+      .catch((err) => alert('エラーが発生しました。'));
   };
 
   return (
     <div className="wrapper">
       <div className="container">
         <Title />
-        <Form getWeather={getWeather} setCity={setCity} city={city} />
+        <Form getWeather={getWeather} setCity={setCity} city={city} setLoading={setLoading} />
         {loading ? <Loading /> : <Results results={results} />}
       </div>
     </div>
