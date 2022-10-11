@@ -16,6 +16,7 @@ type ResultsStateType = {
 function App() {
   const [loading, setLoading] = useState<boolean>(false);
   const [city, setCity] = useState<string>('');
+  const [nameError, setNameError] = useState<string>('');
   const [results, setResults] = useState<ResultsStateType>({
     country: '',
     cityName: '',
@@ -47,7 +48,14 @@ function App() {
     <div className="wrapper">
       <div className="container">
         <Title />
-        <Form getWeather={getWeather} setCity={setCity} city={city} setLoading={setLoading} />
+        <Form
+          getWeather={getWeather}
+          city={city}
+          setCity={setCity}
+          setLoading={setLoading}
+          nameError={nameError}
+          setNameError={setNameError}
+        />
         {loading ? <Loading /> : <Results results={results} />}
       </div>
     </div>

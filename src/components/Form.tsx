@@ -1,14 +1,13 @@
-import { useState } from 'react';
-
 type FormPropsType = {
   city: string;
   setCity: React.Dispatch<React.SetStateAction<string>>;
   getWeather: (e: React.FormEvent<HTMLFormElement>) => void;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  nameError: string;
+  setNameError: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const Form = ({ city, setCity, getWeather, setLoading }: FormPropsType) => {
-  const [nameError, setNameError] = useState<string>('');
+const Form = ({ city, setCity, getWeather, setLoading, nameError, setNameError }: FormPropsType) => {
   const handleBlur = (e: any) => {
     const name: string = e.target.value;
     if (!name) {
