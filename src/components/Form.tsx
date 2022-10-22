@@ -12,8 +12,9 @@ const Form = ({ city, setCity, getWeather, setLoading, nameError, setNameError }
     const name: string = e.target.value;
     if (!name) {
       setNameError('Please enter City Name');
-    } else if (name.match(/[^A-Za-z0-9]+/)) {
-      setNameError('英字で入力してください');
+      // 英字判定
+      // } else if (name.match(/[^A-Za-z0-9]+/)) {
+      //   setNameError('英字で入力してください');
     } else {
       setNameError('');
     }
