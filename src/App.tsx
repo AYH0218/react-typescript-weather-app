@@ -24,19 +24,20 @@ function App() {
     conditionText: '',
     icon: '',
   });
+  console.log(results.conditionText);
 
   const getWeather = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    fetch(`https://api.weatherapi.com/v1/current.json?key=e33106a7d4384c8a9ba94755220810&q=${city}&aqi=no`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=d3635cf18fccaeee152347a04d11873a`)
       .then((res) => res.json())
       .then((data) => {
         setResults({
-          country: data.location.country,
-          cityName: data.location.name,
-          temperature: data.current.temp_c,
-          conditionText: data.current.condition.text,
-          icon: data.current.condition.icon,
+          country: data.sys.country,
+          cityName: data.name,
+          temperature: data.main.temp,
+          conditionText: data.weather[0].main,
+          icon: data.weather[0].icon,
         });
         setCity('');
         setLoading(false);

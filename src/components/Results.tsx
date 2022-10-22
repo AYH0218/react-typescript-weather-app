@@ -10,6 +10,8 @@ type ResultsPropsType = {
 
 const Results = ({ results }: ResultsPropsType) => {
   const { country, cityName, temperature, conditionText, icon } = results;
+  const temp = Number(temperature);
+  const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
   return (
     <div>
@@ -18,13 +20,13 @@ const Results = ({ results }: ResultsPropsType) => {
 
       {temperature && (
         <div className="results-temp">
-          {temperature}
+          {Math.round(temp)}
           <span>°C</span>
         </div>
       )}
       {conditionText && (
         <div className="results-condition">
-          <img src={icon} alt="icon" />
+          <img src={iconUrl} alt="icon" />
           <span>{conditionText}</span>
         </div>
       )}
