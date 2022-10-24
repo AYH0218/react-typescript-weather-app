@@ -29,7 +29,7 @@ function App() {
   const getWeather = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=d3635cf18fccaeee152347a04d11873a`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=d3635cf18fccaeee152347a04d11873a`)
       .then((res) => res.json())
       .then((data) => {
         setResults({

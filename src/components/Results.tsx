@@ -11,7 +11,7 @@ type ResultsPropsType = {
 const Results = ({ results }: ResultsPropsType) => {
   const { country, cityName, temperature, conditionText, icon } = results;
   const temp = Number(temperature);
-  const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
 
   return (
     <div>

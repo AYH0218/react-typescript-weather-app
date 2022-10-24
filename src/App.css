@@ -69,7 +69,7 @@ input[type='text'] {
 button {
   width: 40%;
   border: 0;
-  padding: 8px 20px;
+  padding: 8px 10px;
   margin: 0 2px;
   border-radius: 4px;
   letter-spacing: 1px;
@@ -77,6 +77,20 @@ button {
   cursor: pointer;
   background-color: #f15186;
   color: #fff;
+  background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+  background-size: 300% 300%;
+  animation: GradietionAnimation 9s ease infinite;
+}
+@keyframes GradietionAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 button:hover {
